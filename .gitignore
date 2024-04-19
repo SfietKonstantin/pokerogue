@@ -35,3 +35,6 @@ src/data/battle-anim-raw-data*.ts
 src/data/battle-anim-data.ts
 
 coverage
+
+dist-electron
+release
