@@ -1,9 +1,14 @@
 import { defineConfig } from 'vite';
-// import fs from 'vite-plugin-fs';
+import electron from 'vite-plugin-electron/simple'
+import path from 'node:path'
 
 export default defineConfig(({ mode }) => {
 	return {
-		plugins: [/*fs()*/],
+		plugins: [
+			electron({
+				main: { entry: "electron/main.ts" }
+			})
+		],
 		server: { host: '0.0.0.0', port: 8000 },
 		clearScreen: false,
 		build: {
