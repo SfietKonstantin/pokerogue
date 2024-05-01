@@ -2,7 +2,6 @@
 	"name": "pokemon-rogue-battle",
 	"private": true,
 	"version": "1.0.4",
-	"type": "module",
 	"scripts": {
 		"start": "vite",
 		"start:dev": "vite --mode development",
@@ -10,12 +9,16 @@
 		"preview": "vite preview",
 		"test": "vitest run",
 		"test:cov": "vitest run --coverage",
-		"test:watch": "vitest watch --coverage"
+		"test:watch": "vitest watch --coverage",
+		"electron:start": "vite --config vite.config.electron.js",
+		"electron:build": "vite build --config vite.config.electron.js && electron-builder build -p never"
 	},
 	"devDependencies": {
 		"@vitest/coverage-istanbul": "^1.4.0",
 		"axios": "^1.6.2",
 		"axios-cache-interceptor": "^1.3.2",
+		"electron": "^30.0.1",
+		"electron-builder": "^24.13.3",
 		"eslint": "^8.25.0",
 		"jsdom": "^24.0.0",
 		"json-beautify": "^1.1.1",
@@ -23,13 +26,17 @@
 		"pokenode-ts": "^1.20.0",
 		"typescript": "^5.0.3",
 		"vite": "^4.5.0",
+		"vite-plugin-electron": "^0.28.5",
+		"vite-plugin-electron-renderer": "^0.14.5",
 		"vite-plugin-fs": "^0.4.4",
 		"vitest": "^1.4.0",
 		"vitest-canvas-mock": "^0.3.3"
 	},
 	"dependencies": {
 		"@material/material-color-utilities": "^0.2.7",
+		"@types/express": "^4.17.21",
 		"crypto-js": "^4.2.0",
+		"express": "^4.19.2",
 		"i18next": "^23.11.1",
 		"i18next-browser-languagedetector": "^7.2.1",
 		"json-stable-stringify": "^1.1.0",
@@ -42,5 +49,6 @@
 	"imports": {
 		"#app": "./src/main.js",
 		"#app/*": "./src/*"
-	}
+	},
+	"main": "dist-electron/main.js"
 }
